@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="./login.css">
+
+</head>
+
+<body>
+
+  <div class="login-container">
+    <img src="../../img/logo.webp" alt="Logo Chatserver">
+    <div class="logo">
+      <img src="chatserver-logo.png" alt="CHATSERVER Logo">
+    </div>
+
+    <h1>Login</h1>
+
+    <form>
+      <label for="username">E-Mail oder Benutzername</label>
+      <input id="username" type="text" class="input-field" required>
+
+      <label for="password">Passwort</label>
+      <input id="password" type="password" class="input-field" required>
+
+      <button type="button" id="loginBtn">Log In</button>
+    </form>
+
+    <a href="forgot" class="text-link">Passwort vergessen?</a>
+    <a href="register" class="sub-link">Neues Konto erstellen</a>
+  </div>
+
+  <script type="module" src="login.js"></script>
+
+</body>
+
+</html>
