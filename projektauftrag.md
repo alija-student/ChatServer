@@ -27,10 +27,10 @@ Das System soll benutzerfreundlich sein und eine stabile Kommunikation ermöglic
 * Benutzerregistrierung mit Datenbank
 * Dokumentation (Projektmanagement + technische Doku)
 * Tests und Fehlerbehebung
+* Anmeldung mittels JSON (Registrierung später per Datenbank)
 
 ### 4.2 Nicht Ziele 
 
-* Benutzerregistrierung mit Datenbank
 * Verschlüsselung / Security Features auf Profi-Niveau
 * Mobile App (Android/iOS)
 * Sprachanrufe oder Videochat
@@ -45,43 +45,39 @@ Das System soll benutzerfreundlich sein und eine stabile Kommunikation ermöglic
 
 ### 5.2 Auftraggeber / Stakeholder
 
-* Auftraggeber: (Lehrer / Schule)
+* Auftraggeber: Prof. Klewein
 * Benutzer: Schüler / Tester
 
 ## 6\. Rollenverteilung
 
-* Backend / Server: (Name eintragen)
-* Frontend / Webdesign: (Name eintragen)
+* Backend / Server: gemeinsam
+* Frontend / Webdesign: gemeinsam
 * Dokumentation: gemeinsam
 * Tests: gemeinsam
 
 ## 7\. Zeitrahmen
 
-Projektstart: (Datum eintragen)  
-Projektende / Abgabe: (Datum eintragen)
+Projektstart: 8.November 2025
+Projektende / Abgabe: 25.Juni 2026
 
 ## 8\. Meilensteine
 
-* M1: Planung abgeschlossen (Projektauftrag + Anforderungen)
-* M2: Grundstruktur Repository fertig
-* M3: Server läuft und Clients können verbinden
-* M4: Nachrichtenversand funktioniert
-* M5: Web-Client Design fertig
-* M6: Testphase abgeschlossen
-* M7: Endversion + Dokumentation fertig
+* M1: Planung abgeschlossen (Projektauftrag + Anforderungen) + Grundstruktur Repository fertig
+* M2: Website funktioniert Lokal wie gewollt
+* M3: Website läuft per Webserver, Client verbinden sich und können kommunizieren
+* M4: Design- und Testphase abgeschlossen + Endversion + Dokumentation fertig
 
 ## 9\. Risiken
 
 * Zeitmangel durch parallele Schulaufgaben
 * Technische Probleme bei Echtzeit-Kommunikation (WebSocket / Netzwerk)
-* Merge-Konflikte bei GitHub Zusammenarbeit
 * Fehler bei der Benutzerverwaltung oder Nachrichtenverteilung
 
 ## 10\. Erfolgskriterien
 
 Das Projekt gilt als erfolgreich abgeschlossen, wenn:
 
-* mindestens 2 Clients gleichzeitig verbinden können
+* mindestens 2+ Clients gleichzeitig verbinden können
 * Nachrichten in Echtzeit übertragen werden
 * Benutzername angezeigt wird
 * die Anwendung stabil läuft (keine Abstürze)
