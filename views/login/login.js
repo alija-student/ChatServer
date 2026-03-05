@@ -1,4 +1,4 @@
-
+/*
 document.getElementById('loginBtn').addEventListener('click', function () {
   // hier könntest du Username/Passwort prüfen
   const user = document.getElementById('username').value;
@@ -10,3 +10,26 @@ document.getElementById('loginBtn').addEventListener('click', function () {
     alert("Login fehlgeschlagen!");
   }
 });
+*/
+async function login()
+{
+  const username = document.getElementById("user").value;
+  const password = document.getElementById("pass").value;
+
+  const res = await fetch("/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({username: username, password: password})
+  });
+
+  const data = await res.json();
+
+  if (data.success)
+  {
+    document.getElementById("result").innerText = "Willkommen " + data.name;
+  }
+  else
+  {
+    document.getElementById("result").innerText = "Login fehlgeschlagen";  
+  }
+}
