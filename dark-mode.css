@@ -1,5 +1,5 @@
 body.index-background {
-    background-color: aliceblue; /* Heller Hintergrund */
+    background-color: #1e1e1e; /* Dunkler Hintergrund */
     margin: 0;
     height: 100vh;
     display: flex;
@@ -17,9 +17,10 @@ body.index-background {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #0078d4; /* Blaue Hintergrundfarbe */
+    background-color: #0078d4; /* Gleiche Button-Farbe für Konsistenz */
     border-radius: 8px;
     cursor: pointer;
+    color: white; /* Weiße Schriftfarbe für die Buttons */
 }
 
 #sidebar .active {
@@ -32,7 +33,7 @@ body.index-background {
     border: none; /* Kein Rand um das iFrame */
 }
 
-/* Toggle-Schalter Styles */
+/* Toggle-Schalter Styles (gleich wie im Light-Modus) */
 .toggle-container {
     display: flex;
     align-items: center;
