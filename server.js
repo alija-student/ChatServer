@@ -1,43 +1,59 @@
-//to run server.js type "node server.js" into console
-//in order to run server.js you need to install Node.js 
-//Server now runs on http://localhost:3000
+const express = require('express');
+const path = require('path');
+const fs = require('fs').promises;
 
+const app = express();
+const port = process.env.PORT || 3000;
 
-const http = require("http");
-const fs = require("fs");
+// statische Dateien (Root + views)
+app.use(express.static(path.join(__dirname)));
+app.use('/views', express.static(path.join(__dirname, 'views')));
 
-const server = http.createServer((req, res) =>{
+// JSON body parsing
+app.use(express.json());
 
-    if (req.method === "GET" && req.url ==="/")
-    {
-        const html = fs.readFileSync("index.html");
-        res.writeHead(200, {"Content-Type": "text/html"});
+// Index liefern
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Login endpoint: erwartet { identifier, password }
+app.post('/login', async (req, res) => {
+  try {
+    const { identifier, password } = req.body;
+    if (!identifier || !password) {
+      return res.status(400).json({ success: false, message: 'Fehlende Anmeldedaten' });
     }
-    else if (req.method === "POST" && req.url === "/login")
-    {
-        let body = "";
-        req.on("data", chunk => {body.url === "/login"});
 
-        req.on
-        ("end", chunk => 
-            {
-                const data = JSON.parse(body); 
-                const users = JSON.parse(fs.readFileSync("users.json"));
-                const user = users.find(u => u.username === data.username && u.username === data.password);
+    // user.json im Projekt-Root lesen
+    const raw = await fs.readFile(path.join(__dirname, 'user.json'), 'utf8');
+    const users = JSON.parse(raw);
 
-                res.writeHead(200, {"Content-Type": "application/json"});
+    const idLower = identifier.toLowerCase();
+    const user = users.find(u =>
+      (u.email && u.email.toLowerCase() === idLower) ||
+      (u.username && u.username.toLowerCase() === idLower)
+    );
 
-                if (user)
-                {
-                    res.end(JSON.stringify({success: true, name: user.name}));
-                }
-                else
-                {
-                    res.end(JSON.stringify({success: false}));
-                }
-            }
-        )
+    if (!user) {
+      return res.status(401).json({ success: false, message: 'Benutzer nicht gefunden' });
     }
-    server.listen(3000, () => { console.log("Server läuft auf http://localhost:3000")});
-})
-setTimeout(() => {console.log("Nach 2 Sekunden");}, 2000);
+
+    // Klartext-Vergleich (nur für Entwicklung). In Produktion: Hashing verwenden.
+    if (user.password !== password) {
+      return res.status(401).json({ success: false, message: 'Falsches Passwort' });
+    }
+
+    // Erfolgreich: sende Benutzerdaten ohne Passwort
+    const { password: _pw, ...safeUser } = user;
+    console.log(`Passwort war korrekt!`);
+    return res.json({ success: true, user: safeUser });
+  } catch (err) {
+    console.error('Login error:', err);
+    return res.status(500).json({ success: false, message: 'Serverfehler' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server läuft auf http://localhost:${port}`);
+});
