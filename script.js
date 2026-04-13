@@ -29,6 +29,14 @@ const views = {
 var activeBtn = null;
 
 function init(){
+    // If previously logged in, don't require a second login — load chatroom directly
+    if (localStorage.getItem('loggedin') === 'true') {
+        set_var_successful_loggedin(true);
+        switchView('chatroom');
+        return;
+    }
+
+    // Otherwise show the login view inside the container
     viewContainer.src = views.login.src;
 }
 

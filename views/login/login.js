@@ -13,8 +13,17 @@ document.getElementById('loginBtn').addEventListener('click', function () {
 */
 async function login()
 {
-  const username = document.getElementById("user").value;
-  const password = document.getElementById("pass").value;
+  const userEl = document.getElementById("identifier");
+  const passEl = document.getElementById("password");
+
+  if (!userEl || !passEl) {
+    const resultEl = document.getElementById('result');
+    if (resultEl) resultEl.innerText = 'Fehler: Eingabefelder nicht gefunden';
+    return;
+  }
+
+  const username = userEl.value;
+  const password = passEl.value;
 
   const res = await fetch("/login", {
     method: "POST",
