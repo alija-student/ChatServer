@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="./lightStyle.css">
     <link rel="stylesheet" href="./darkStyle.css" media="(prefers-color-scheme: dark)">
 </head>
-<body>
+<body class="index-background">
     <div id="sidebar">
-        <button id="btn_chatroom" onclick="switchView('chatroom')">chat</button>
-<!--        <button id="btn_calendar" onclick="switchView('calendar')">calendar</button>   -->
-    
+        <button id="btn_chatroom" onclick="switchView('chatroom')">Chat</button>
+        <!-- Optionaler Kalender-Button -->
+        <!-- <button id="btn_calendar" onclick="switchView('calendar')">Kalender</button> -->
+        
+        <!-- Toggle-Schalter für Dark/Light Mode -->
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="toggle-theme">
+                <span class="slider"></span>
+            </label>
+        </div>
     </div>
+    
     <iframe id="view_container"></iframe>
 
     <script src="script.js"></script>
