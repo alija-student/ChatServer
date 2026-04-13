@@ -13,7 +13,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
 */
 async function login()
 {
-  const userEl = document.getElementById("identifier");
+  const userEl = document.getElementById("username");
   const passEl = document.getElementById("password");
 
   if (!userEl || !passEl) {
@@ -35,21 +35,29 @@ async function login()
 
   if (data.success)
   {
-    // mark logged in and navigate to the main app
+    // mark logged in and navigate to the chatroom page
     localStorage.setItem('loggedin', 'true');
-    // optional: store name
     localStorage.setItem('name', data.name || '');
-    // redirect to index.html which contains the view container
-    window.location.href = '/index.html';
+    window.location.href = '/chatroom.html';
   }
   else
   {
-    // show error in the result element if present
+    // show generic error in the result element if present (do not reveal which field is wrong)
     const resultEl = document.getElementById('result');
-    if (resultEl) resultEl.innerText = 'Login fehlgeschlagen';
-    else alert('Login fehlgeschlagen');
+    const msg = 'Benutzername oder Passwort falsch';
+    if (resultEl) resultEl.innerText = msg;
+    else alert(msg);
   }
 }
 
 // Ensure the function is available for inline onclick handlers
 window.login = login;
+
+// Attach click handler to the login button if present (supports non-inline usage)
+const loginBtn = document.getElementById('loginBtn');
+if (loginBtn) {
+  loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    login();
+  });
+}
