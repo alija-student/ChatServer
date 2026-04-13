@@ -26,10 +26,21 @@ async function login()
 
   if (data.success)
   {
-    document.getElementById("result").innerText = "Willkommen " + data.name;
+    // mark logged in and navigate to the main app
+    localStorage.setItem('loggedin', 'true');
+    // optional: store name
+    localStorage.setItem('name', data.name || '');
+    // redirect to index.html which contains the view container
+    window.location.href = '/index.html';
   }
   else
   {
-    document.getElementById("result").innerText = "Login fehlgeschlagen";  
+    // show error in the result element if present
+    const resultEl = document.getElementById('result');
+    if (resultEl) resultEl.innerText = 'Login fehlgeschlagen';
+    else alert('Login fehlgeschlagen');
   }
 }
+
+// Ensure the function is available for inline onclick handlers
+window.login = login;

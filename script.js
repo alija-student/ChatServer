@@ -10,7 +10,15 @@ var activeBtn = null;
 const viewContainer = document.getElementById("view_container");
 
 function init(){
-    viewContainer.src = views.login.src;
+  // If not logged in, go to the login page
+  if (localStorage.getItem('loggedin') !== 'true') {
+    window.location.href = '/';
+    return;
+  }
+
+  // If logged in, initialize the index view to chatroom
+  set_var_successful_loggedin(true);
+  switchView('chatroom');
 }
 
 window.addEventListener("message", (event) => {
