@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient(135deg,
+            #1a2b55 0%,
+            #142347 25%,
+            #0d1833 50%,
+            #000000 100%);
+    font-family: sans-serif;
+    color: #ffffff;      
+}
+
+/* USER PANEL */
+.text-userpanel {
+    color: #2563eb;
+}
+
+/* USER LIST (JS ITEMS) */
+.user-list {
+    color: #2563eb;
+}
+
+/* MESSAGE PANEL TEXT */
+.text-messagepanel {
+    color: #ffffff;
+}
+
+
+/* MESSAGE LIST TEXT */
+.message-list {
+    color: #ffffff;
+}
+
+/* MESSAGE INPUT BAR TEXT */
+.text-inputbar {
+    color: #ffffff;
+}
+#message_input {
+    color: #ffffff;
+    background-color:darkblue;
+}
+
+/* INPUT FIELD TEXT */
+.text-input {
+    color: #ffffff;
+}
+
+/* SEND BUTTON */
+.send-button {
+    color: #ffffff;
+    background: #2563eb;
+}
