@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Chat Platform</title>
+
+    <!-- LIGHT / DARK -->
+    <link rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Inter','Segoe UI',sans-serif;
+            min-height:100vh;
+            overflow-x:hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 60px;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .logo img{
+            width:55px;
+            height:55px;
+            object-fit:contain;
+        }
+
+        .logo h1{
+            font-size:24px;
+            font-weight:700;
+        }
+
+        .nav-buttons{
+            display:flex;
+            gap:14px;
+        }
+
+        .nav-buttons button{
+            padding:12px 18px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            cursor:pointer;
+            font-size:14px;
+            transition:0.2s;
+        }
+
+        .nav-buttons button:hover{
+            transform:translateY(-2px);
+            opacity:0.92;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero{
+            width:100%;
+            min-height:85vh;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            padding:40px 80px;
+            gap:80px;
+        }
+
+        /* LEFT */
+
+        .hero-left{
+            flex:1;
+        }
+
+        .hero-left h2{
+            font-size:64px;
+            line-height:1.1;
+            margin-bottom:28px;
+            font-weight:800;
+        }
+
+        .hero-left p{
+            font-size:20px;
+            line-height:1.7;
+            max-width:650px;
+            opacity:0.85;
+            margin-bottom:35px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:18px;
+        }
+
+        .hero-buttons button{
+            padding:16px 24px;
+            border:none;
+            border-radius:12px;
+            cursor:pointer;
+            font-size:16px;
+            transition:0.2s;
+        }
+
+        .primary-btn{
+            background:#2563eb;
+            color:white;
+        }
+
+        .secondary-btn{
+            background:transparent;
+            border:2px solid #2563eb !important;
+            color:#2563eb;
+        }
+
+        .hero-buttons button:hover{
+            transform:translateY(-3px);
+        }
+
+        /* =========================
+           RIGHT SHOWCASE
+        ========================== */
+
+        .hero-right{
+            flex:1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position:relative;
+        }
+
+        /* DESKTOP FRAME */
+
+        .desktop-frame{
+            width:700px;
+            height:420px;
+
+            border-radius:22px;
+            overflow:hidden;
+
+            border:10px solid #1d1d1d;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.25);
+
+            position:relative;
+
+            transition:0.4s;
+        }
+
+        .desktop-frame img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:0.4s;
+        }
+
+        .desktop-frame:hover img{
+            transform:scale(1.05);
+        }
+
+        /* SMARTPHONE */
+
+        .phone-frame{
+            width:170px;
+            height:340px;
+
+            border-radius:32px;
+
+            border:8px solid #111;
+
+            overflow:hidden;
+
+            position:absolute;
+
+            right:-40px;
+            bottom:-40px;
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.3);
+
+            transition:0.4s;
+        }
+
+        .phone-frame img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:0.4s;
+        }
+
+        .phone-frame:hover{
+            transform:
+                translateY(-12px)
+                rotate(2deg)
+                scale(1.04);
+        }
+
+        .phone-frame:hover img{
+            transform:scale(1.08);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media(max-width:1200px){
+
+            .hero{
+                flex-direction:column;
+                text-align:center;
+                padding:40px;
+            }
+
+            .hero-left h2{
+                font-size:48px;
+            }
+
+            .hero-left p{
+                margin:auto;
+                margin-bottom:35px;
+            }
+
+            .hero-buttons{
+                justify-content:center;
+            }
+
+            .desktop-frame{
+                width:100%;
+                max-width:700px;
+            }
+
+            .phone-frame{
+                right:0;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:20px;
+                padding:25px;
+            }
+
+            .hero-left h2{
+                font-size:40px;
+            }
+
+            .desktop-frame{
+                height:280px;
+            }
+
+            .phone-frame{
+                width:120px;
+                height:240px;
+                bottom:-20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="logotr.webp">
+
+            <h1>ChatSERVER</h1>
+
+        </div>
+
+        <div class="nav-buttons">
+
+            <a href="chatroom.html">
+                <button>Join Chat</button>
+            </a>
+
+            <a href="profile.html">
+                <button>My Profile</button>
+            </a>
+
+            <a href="login.html">
+                <button>Login</button>
+            </a>
+
+            <a href="register.html">
+                <button>Register</button>
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <!-- LEFT -->
+
+        <div class="hero-left">
+
+            <h2>
+                Moderne Kommunikation
+                für Privatpersonen & Unternehmen
+            </h2>
+
+            <p>
+                ChatSERVER verbindet Messaging, Teamkommunikation,
+                Administration und moderne Collaboration in einer
+                sicheren Plattform für Unternehmen und Privatpersonen.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+                    Jetzt starten
+                </button>
+
+                <button class="secondary-btn">
+                    Mehr erfahren
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="hero-right">
+
+            <!-- DESKTOP -->
+
+            <div class="desktop-frame">
+
+                <img src="desktop_chat.png">
+
+            </div>
+
+            <!-- SMARTPHONE -->
+
+            <div class="phone-frame">
+
+                <img src="mobile_chat.png">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
