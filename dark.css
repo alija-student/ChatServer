@@ -48,3 +48,11 @@ body {
     color: #ffffff;
     background: #2563eb;
 }
+
+.userlist,
+.chatbox,
+.message-bar input{
+    background:#000000 !important;
+    color:#f8fafc !important;
+    border-color:#1e293b !important;
+}

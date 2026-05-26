@@ -1,0 +1,19 @@
+<script src="auth.js"></script>
+<script src="index.js" defer></script>
+</body>
+</html>
+
+<script src="auth.js"></script>
+<script src="login.js" defer></script>
+</body>
+</html>
+
+<script src="auth.js"></script>
+<script src="register.js" defer></script>
+</body>
+</html>
+
+<script src="auth.js"></script>
+<script src="chat.js" defer></script>
+</body>
+</html>
