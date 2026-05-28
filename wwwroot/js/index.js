@@ -1,21 +1,21 @@
 function updateUI() {
     const loggedIn = isLoggedIn();
 
-    const chatBtn     = document.getElementById("chatBtn");
-    const profileBtn  = document.getElementById("profileBtn");
-    const loginBtn    = document.getElementById("loginBtn");
-    const registerBtn = document.getElementById("registerBtn");
+    const show = (id) => { const el = document.getElementById(id); if (el) el.style.display = ""; };
+    const hide = (id) => { const el = document.getElementById(id); if (el) el.style.display = "none"; };
 
-    if (!loggedIn) {
-        if (chatBtn)     chatBtn.disabled     = true;
-        if (profileBtn)  profileBtn.disabled  = true;
-        if (loginBtn)    loginBtn.disabled    = false;
-        if (registerBtn) registerBtn.disabled = false;
+    if (loggedIn) {
+        show("chatBtn");
+        show("profileBtn");
+        show("logoutBtn");
+        hide("loginBtn");
+        hide("registerBtn");
     } else {
-        if (chatBtn)     chatBtn.disabled     = false;
-        if (profileBtn)  profileBtn.disabled  = false;
-        if (loginBtn)    loginBtn.disabled    = true;
-        if (registerBtn) registerBtn.disabled = true;
+        hide("chatBtn");
+        hide("profileBtn");
+        hide("logoutBtn");
+        show("loginBtn");
+        show("registerBtn");
     }
 }
 

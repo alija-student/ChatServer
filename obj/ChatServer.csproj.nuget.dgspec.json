@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projekte\\Chatserver\\ChatServer\\ChatServer.csproj": {}
+    "D:\\SYSPRE\\Chatserver_express\\ChatServer\\ChatServer.csproj": {}
   },
   "projects": {
-    "E:\\Projekte\\Chatserver\\ChatServer\\ChatServer.csproj": {
+    "D:\\SYSPRE\\Chatserver_express\\ChatServer\\ChatServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projekte\\Chatserver\\ChatServer\\ChatServer.csproj",
+        "projectUniqueName": "D:\\SYSPRE\\Chatserver_express\\ChatServer\\ChatServer.csproj",
         "projectName": "ChatServer",
-        "projectPath": "E:\\Projekte\\Chatserver\\ChatServer\\ChatServer.csproj",
-        "packagesPath": "C:\\Users\\bicka\\.nuget\\packages\\",
-        "outputPath": "E:\\Projekte\\Chatserver\\ChatServer\\obj\\",
+        "projectPath": "D:\\SYSPRE\\Chatserver_express\\ChatServer\\ChatServer.csproj",
+        "packagesPath": "C:\\Users\\alija\\.nuget\\packages\\",
+        "outputPath": "D:\\SYSPRE\\Chatserver_express\\ChatServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bicka\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\alija\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -24,7 +24,6 @@
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -39,11 +38,10 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Sqlite": {
@@ -76,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

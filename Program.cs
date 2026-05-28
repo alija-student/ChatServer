@@ -1,10 +1,12 @@
 using ChatServer.Data;
+using ChatServer.Hubs;
 using ChatServer.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -40,5 +42,6 @@ using (var scope = app.Services.CreateScope())
 app.UseDefaultFiles();   // serves index.html for /
 app.UseStaticFiles();    // serves wwwroot/
 app.MapControllers();
+app.MapHub<ChatHub>("/hubs/chat");
 
 app.Run();

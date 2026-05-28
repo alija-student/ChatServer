@@ -279,6 +279,20 @@ button:hover{
 }
 
 /* =========================
+   BUBBLE GROUPING
+========================= */
+
+/* own: tail is bottom-right */
+.bubble.own.pos-first  { border-bottom-right-radius: 6px; }
+.bubble.own.pos-middle { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
+.bubble.own.pos-last   { border-top-right-radius: 6px; }
+
+/* other: tail is bottom-left */
+.bubble.other.pos-first  { border-bottom-left-radius: 6px; }
+.bubble.other.pos-middle { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+.bubble.other.pos-last   { border-top-left-radius: 6px; }
+
+/* =========================
    USER LIST ITEMS
 ========================= */
 
