@@ -1,47 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatroom</title>
+    <title>Chat Room</title>
 
-    <link rel="stylesheet" href="light.css">
-    <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
+    <!-- BASE LAYOUT -->
+    <link rel="stylesheet" href="chatroom.css">
+
+    <!-- THEME (will be swapped by JS) -->
+    <link id="theme" rel="stylesheet" href="light.css">
+
+    <!-- AUTO THEME DETECTION -->
+    <script>
+        function applySystemTheme() {
+            const prefersDark = window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            const themeLink = document.getElementById("theme");
+
+            if (prefersDark) {
+                themeLink.href = "dark.css";
+            } else {
+                themeLink.href = "light.css";
+            }
+        }
+
+        applySystemTheme();
+    </script>
 </head>
+<body>
 
-<body style="margin:0; padding:0; width:100%; height:100%; font-family:sans-serif; overflow:hidden;">
+    <!-- TOP BAR -->
+    <div class="topbar">
 
-    <div id="app_container" style="display:flex; width:100%; height:100%; box-sizing:border-box;">
-
-        <!-- USER LIST -->
-        <div id="user_container" class="user-panel" style="width:20%; padding:1rem; overflow-y:auto; box-sizing:border-box;">
-
-            <div id="user_list" class="user-list">
-                <!-- JS USERS -->
+       <div class="left">
+            <img src="logotr.png" class="logo">
+            <div class="userinfo">
+                Logged in as: <b id="currentUserTop"></b>
             </div>
-            
         </div>
 
-        <!-- MESSAGE AREA -->
-        <div id="message_container" style="width:80%; display:flex; flex-direction:column; height:100vh; border-left:1px solid; box-sizing:border-box; overflow:hidden;">
+        <div class="buttons">
+            <button onclick="window.open('index.html','_blank')">
+                Home
+            </button>
 
-            <ul id="message_list" style="flex:1; list-style:none; padding:1rem; margin:0; overflow-y:auto;">
-                <!-- JS MESSAGES -->
-            </ul>
+            <button onclick="window.open('profile.html','_blank')">
+                Profile
+            </button>
 
-            <!-- INPUT -->
-            <div id="message_adder" class="input-bar" style="display:flex; padding:1rem; box-sizing:border-box; flex-shrink:0;">
+            <button onclick="logout()">
+                Logout
+            </button>
 
-                <input id="message_input" class="message-input" type="text" placeholder="Input message..." style="flex:1; padding:0.5rem; font-size:1rem; border-radius:4px;">
-
-                <button id="send_button" class="send-button" style="margin-left:0.5rem; padding:0.5rem 1rem; border:none; border-radius:4px; cursor:pointer;">Send</button>
-            </div>
-
+            <!-- theme toggle -->
+            <button id="themeToggle" onclick="toggleTheme()">Dark</button>
         </div>
-    
+
     </div>
 
-<script src="chatroom.js"></script>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <div class="layout">
+
+            <!-- USER LIST -->
+            <div class="userlist">
+                <h3>Users</h3>
+                <ul id="userList"></ul>
+            </div>
+
+            <!-- CHAT AREA -->
+            <div class="chat-area">
+
+                <div id="chatBox" class="chatbox"></div>
+
+                <div class="message-bar">
+                    <input id="messageInput" placeholder="Type message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="auth.js"></script>
+    <script src="chatroom.js" defer></script>
+
+    <!-- small UI helpers -->
+   <script id="uihelpers001">
+
+    // show current user
+    document.getElementById("currentUserTop").innerText =
+    localStorage.getItem("username");
+
+    function updateThemeButton() {
+        const theme = document.getElementById("theme").href;
+
+        document.getElementById("themeToggle").innerText =
+            theme.includes("dark.css") ? "Light" : "Dark";
+    }
+
+    function setTheme(mode) {
+        document.getElementById("theme").href = mode + ".css";
+        updateThemeButton();
+    }
+
+    function toggleTheme() {
+        const themeLink = document.getElementById("theme");
+
+        if (themeLink.href.includes("dark.css")) {
+            setTheme("light");
+        } else {
+            setTheme("dark");
+        }
+    }
+
+    updateThemeButton();
+
+</script>
+
 </body>
 </html>
