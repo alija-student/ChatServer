@@ -1,57 +1,25 @@
-body {
-    background: linear-gradient(135deg,
-        #f7f9ff 0%,
-        #e5edff 25%,
-        #c7d4ff 50%,
-        #192033 100%);
-    font-family: sans-serif;
-    color: #1d1d1d;
-}
+:root {
+    color-scheme: light;
 
-/* USER PANEL */
-.text-userpanel {
-    color: #2563eb;
-}
-
-/* USER LIST (JS ITEMS) */
-.user-list {
-    color: #2563eb;
-}
-
-/* MESSAGE PANEL TEXT */
-.text-messagepanel {
-    color: #1d1d1d;
-}
-
-
-/* MESSAGE LIST TEXT */
-.message-list {
-    color: #1d1d1d;
-}
-
-/* MESSAGE INPUT BAR TEXT */
-.text-inputbar {
-    color: #1d1d1d;
-}
-#message_input {
-    color: #1d1d1d;
-    background-color:lightblue;
-}
-
-/* INPUT FIELD TEXT */
-.text-input {
-    color: #1d1d1d;
-}
-
-/* SEND BUTTON */
-.send-button {
-    color: #ffffff;
-    background: #2563eb;
-}
-
-/* DISABLED BUTTONS */
-button:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    transform: none !important;
+    --bg:              #f8fafc;
+    --bg-gradient:     linear-gradient(315deg, #c7d4ff 0%, #e5edff 45%, #f8fafc 100%);
+    --surface:         #ffffff;
+    --text:            #111827;
+    --text-muted:      #6b7280;
+    --text-label:      #374151;
+    --border:          #d1d5db;
+    --border-subtle:   rgba(0, 0, 0, 0.08);
+    --blue:            #2563eb;
+    --blue-hover:      #1d4ed8;
+    --shadow-sm:       0 6px 18px rgba(0, 0, 0, 0.06);
+    --shadow:          0 20px 40px rgba(0, 0, 0, 0.08);
+    --shadow-lg:       0 20px 50px rgba(0, 0, 0, 0.08);
+    --bubble-other-bg: #f1f5f9;
+    --bubble-other-text: #111827;
+    --input-bg:        rgba(0, 0, 0, 0.04);
+    --item-bg:         rgba(0, 0, 0, 0.04);
+    --placeholder:     #9ca3af;
+    --input-focus-border: #2563eb;
+    --chat-bg:         linear-gradient(315deg, #b0bdd8 0%, #c4ceea 50%, #d8e0f2 100%);
+    --panel-glow:      0 8px 32px rgba(180, 200, 255, 0.25);
 }
