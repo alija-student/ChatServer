@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(135deg,
+        #f7f9ff 0%,
+        #e5edff 25%,
+        #c7d4ff 50%,
+        #192033 100%);
+    font-family: sans-serif;
+    color: #1d1d1d;
+}
+
+/* USER PANEL */
+.text-userpanel {
+    color: #2563eb;
+}
+
+/* USER LIST (JS ITEMS) */
+.user-list {
+    color: #2563eb;
+}
+
+/* MESSAGE PANEL TEXT */
+.text-messagepanel {
+    color: #1d1d1d;
+}
+
+
+/* MESSAGE LIST TEXT */
+.message-list {
+    color: #1d1d1d;
+}
+
+/* MESSAGE INPUT BAR TEXT */
+.text-inputbar {
+    color: #1d1d1d;
+}
+#message_input {
+    color: #1d1d1d;
+    background-color:lightblue;
+}
+
+/* INPUT FIELD TEXT */
+.text-input {
+    color: #1d1d1d;
+}
+
+/* SEND BUTTON */
+.send-button {
+    color: #ffffff;
+    background: #2563eb;
+}
+
+/* DISABLED BUTTONS */
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none !important;
+}
